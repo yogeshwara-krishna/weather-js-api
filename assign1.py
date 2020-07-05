@@ -19,12 +19,16 @@ def getwea(city):
     temp=json_response["main"]["temp"]
     return{"description":wea_desc,"temp":temp}
 
-@app.route("/api/weather",methods=["GET","POST"])
+@app.route("/api/weather",methods=['GET'])
 def weather():
     city=request.args.get("city")
+    print(city)
     weat=getwea(city)
     print("inside api")
     return jsonify(weat)
+@app.route("/",methods=['GET','POST'])
+def gweather():
+    return render_template("weather.html")
 # @app.route("/in",methods =['POST', 'GET'])
 # def weather():
 #     location = request.form['city']
