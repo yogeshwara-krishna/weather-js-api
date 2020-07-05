@@ -42,14 +42,16 @@
     var city=document.getElementById("city").value;
     $.getJSON("/api/weather",{"city":city},function(result){
     console.log(result);
+    var data_html = `<td ><p>`+city+`</p></td>
+    <td><p>`+result["description"]+`</p></td>
+    <td><p>`+result["temp"]+`</p></td>
+    `;
+    $("#data").html(data_html);
     });
 
-    var data_html = `<td ><p>`+city+`</p></td>
-    <td><p>`+result[0]+`</p></td>
-    <td><p>`+result[1]+`</p></td>
-    `;
 
-    $("#data").html(data_html);
+
+
 
     }
 </script>
